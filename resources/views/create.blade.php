@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
+<x-layouts>
 <form method="POST" action="{{ route('store') }}">
         @csrf
         <div>
@@ -18,5 +11,4 @@
         </div>
         <button type="submit">Create Song</button>
     </form>
-</body>
-</html>
+</x-layouts>
