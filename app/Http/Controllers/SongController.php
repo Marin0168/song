@@ -47,7 +47,19 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        //verwerkt formulieren dus om iets bijvoorbeeld toe te voegen
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'singer' => 'required|string|max:255',
+        ]);
+
+        // Maak een nieuwe song aan
+        $song = new Song();
+        $song->title = $request->title;
+        $song->singer = $request->singer;
+        $song->save();
+
+        // Redirect naar de index pagina
+        return redirect()->route('songs')->with('success', 'Song created successfully!');    
     }
 
     /**
