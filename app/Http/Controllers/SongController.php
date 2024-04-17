@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Song;
 class SongController extends Controller
 {
     /**
@@ -11,8 +11,8 @@ class SongController extends Controller
      */
     public function index()
     {
-        $songs = ['Living on a prayer', 'Nothing else matters', 'Thunderstruck', 'Back in black', 'Ace of spades'];
-        return view("songs", ["songs"=> $songs]);
+        $songs = Song::all();
+        return view('songs', compact('songs'));
     }
 
     /**
@@ -28,8 +28,7 @@ class SongController extends Controller
      */
     public function show(string $id)
     {
-        $songs = ['Living on a prayer', 'Nothing else matters', 'Thunderstruck', 'Back in black', 'Ace of spades'];
-        $song = isset($songs[$id]) ? $songs[$id] : null;
+        $song = Song::find($id); // Haal de song op basis van het meegegeven id op uit de database
         return view('show', compact('song'));
     }
 
