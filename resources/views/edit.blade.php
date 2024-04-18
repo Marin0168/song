@@ -9,6 +9,10 @@
         @method('PUT')
 
         <div class="mb-4">
+        <label for="singer" class="block text-gray-700">Singer</label>
+            <input type="text" name="singer" id="singer" value="{{ old('singer', $song->singer) }}" required 
+                class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300">
+
             <label for="title" class="block text-gray-700">Title</label>
             <input type="text" name="title" id="title" value="{{ old('title', $song->title) }}" required 
                 class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300">
