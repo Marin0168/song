@@ -26,55 +26,58 @@ class SongController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id )
     {
-        $song = Song::find($id); // Haal de song op basis van het meegegeven id op uit de database
-        return view('show', compact('song'));
+        $song = Song::find($id); 
+        return view('show', compact('song'))->with('id',$id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        $songs = ['Living on a prayer', 'Nothing else matters', 'Thunderstruck', 'Back in black', 'Ace of spades'];
-        $song = isset($songs[$id]) ? $songs[$id] : null;
-        return view('edit', compact('song'));
+        $song = Song::find($id);   
+       return view('edit', compact('song'))->with('id',$id);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'singer' => 'required|string|max:255',
         ]);
-
+    
         // Maak een nieuwe song aan
         $song = new Song();
-        $song->title = $request->title;
-        $song->singer = $request->singer;
+        $song->title = $validatedData['title'];
+        $song->singer = $validatedData['singer'];
         $song->save();
-
+    
         // Redirect naar de index pagina
-        return redirect()->route('songs')->with('success', 'Song created successfully!');    
+        return redirect()->route('songs')->with('success', 'Song created successfully!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //doet iets update is dus nodig bij edit
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+    
+        $song = Song::findOrFail($id);
+        $song->title = $validatedData['title'];
+    
+        $song->save();
+    
+        return redirect()->route('songs', ['index' => $id])->with('success', 'Song bijgewerkt!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //doet iets verwijderen
+    $song = Song::find($id);
+
+    if ($song) {
+        $song->delete();
+        return redirect()->route('songs')->with('success', 'Song deleted successfully.');
+    } else {
+        return redirect()->route('songs')->with('error', 'Song not found.');
+    }
     }
 }
