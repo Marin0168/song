@@ -7,9 +7,8 @@
         <p>{{ $song->singer }}</p>
     @endif
 
-<form method="GET" action="{{ route('edit', $id) }}">
+<form method="POST" action="{{ route('edit', $id) }}">
     @csrf
-    @method('PUT')
     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</button>
 </form>
 
