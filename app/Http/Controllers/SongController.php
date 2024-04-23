@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Song;
 class SongController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         // Zoek de song
@@ -72,10 +69,14 @@ class SongController extends Controller
         // vallideer de data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'singer' => 'required|string|max:255',
+
         ]);
         // zoek de song
         $song = Song::find($id);
         $song->title = $validatedData['title'];
+        $song->singer = $validatedData['singer'];
+
         // sla de song op
         $song->save();
     

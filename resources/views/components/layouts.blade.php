@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com" ></script>
 </head>
 <body>
+<!-- @vite('resources/css/app.css')  -->
 
 <div class="min-h-full">
   <nav class="bg-gray-800">
