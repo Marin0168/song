@@ -1,10 +1,10 @@
-<x-layouts>
+<x-songs-layouts>
     <x-slot:title>
         EditPage
     </x-slot:title>
 
     <div class="flex justify-between max-w-md mx-auto">
-    <form method="POST" action="{{ route('update', ['index' => $song->id]) }}" class="mr-2">
+    <form method="POST" action="{{ route('songs.update', ['index' => $song->id]) }}" class="mr-2">
         @csrf 
         @method('PUT')
 
@@ -29,5 +29,5 @@
 
 
 
-</x-layouts>
+</x-songs-layouts>
 

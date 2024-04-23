@@ -20,8 +20,9 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="songs" class="{{request()->is('/') ?'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
-              <a href="create" class="{{request()->is('create') ?'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">create</a>
+              <a href="{{ route('songs.index') }}" class="{{ request()->is('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+              <a href="{{ route('songs.create') }}" class="{{ request()->is('create') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Create</a>
+
             </div>
           </div>
         </div>

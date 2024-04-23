@@ -1,9 +1,9 @@
-<x-layouts>
+<x-songs-layouts>
     <x-slot:title>
         CreatePage
     </x-slot:title>
     <x-slot:currentpage>
-    @if (Route::currentRouteName() == 'create')
+    @if (Route::currentRouteName() == 'songs.create')
         bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium
     @else
         text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium
@@ -11,7 +11,7 @@
 </x-slot:currentpage>
 
 
-    <form method="POST" action="{{ route('store') }}" class="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form method="POST" action="{{ route('songs.store') }}" class="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         @csrf
         <div class="mb-4">
             <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title:</label>
@@ -30,4 +30,4 @@
             </button>
         </div>
     </form>
-</x-layouts>
+</x-songs-layouts>
