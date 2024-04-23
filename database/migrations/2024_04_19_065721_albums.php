@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create("albums", function (Blueprint $table) {
             $table->id();
-            $table->string("name")->nullable(false);
-            
+            $table->string('name');
+            $table->integer('year')->nullable();
+            $table->integer('times_sold')->nullable();
+            $table->timestamps();
         });
     }
 

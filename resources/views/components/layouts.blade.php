@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{$title}}</title>
-    <script src="https://cdn.tailwindcss.com" ></script>
+    <!-- <script src="https://cdn.tailwindcss.com" ></script> -->
+    @vite('resources/css/app.css') 
+
 </head>
 <body>
-<!-- @vite('resources/css/app.css')  -->
-
 <div class="min-h-full">
   <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -20,7 +20,7 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" class="{{request()->is('/') ?'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+              <a href="songs" class="{{request()->is('/') ?'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
               <a href="create" class="{{request()->is('create') ?'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">create</a>
             </div>
           </div>

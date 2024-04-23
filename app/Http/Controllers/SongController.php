@@ -12,13 +12,13 @@ class SongController extends Controller
         $songs = Song::all();
 
         // Stuur naar de songs pagina en geef song mee
-        return view('songs', compact('songs'));
+        return view('songs/songs', compact('songs'));
     }
 
     public function create()
     {
         // stuur naar de create pagina
-        return view("create");
+        return view("songs/create");
     }
 
     /**
@@ -30,7 +30,7 @@ class SongController extends Controller
         $song = Song::find($id); 
 
         // stuur naar de pagina en stuur de song en id mee
-        return view('show', compact('song'))->with('id',$id);
+        return view('songs/show', compact('song'))->with('id',$id);
     }
 
     public function edit(string $id)
@@ -39,7 +39,7 @@ class SongController extends Controller
         $song = Song::find($id);
         
         // Stuur naar de edit pagina geef de song en id mee
-        return view('edit', compact('song'))->with('id',$id);
+        return view('songs/edit', compact('song'))->with('id',$id);
     }
     
     public function store(Request $request)
