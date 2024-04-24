@@ -61,7 +61,7 @@ class SongController extends Controller
         $song->save();
     
         // stuur terug naar homepage
-        return redirect()->route('songs')->with('success', 'Song created successfully!');
+        return redirect()->route('songs/songs')->with('success', 'Song created successfully!');
     }
 
     public function update(Request $request, string $id)
@@ -81,7 +81,7 @@ class SongController extends Controller
         $song->save();
     
         // stuur terug naar homepage
-        return redirect()->route('songs', ['index' => $id])->with('success', 'Song bijgewerkt!');
+        return redirect()->route('songs/songs', ['index' => $id])->with('success', 'Song bijgewerkt!');
     }
 
     public function destroy(string $id)
@@ -93,6 +93,6 @@ class SongController extends Controller
         $song->delete();
 
         // stuur terug naar homepage
-        return redirect()->route('songs')->with('success', 'Song deleted successfully.');
+        return redirect()->route('songs/songs')->with('success', 'Song deleted successfully.');
     }
 }

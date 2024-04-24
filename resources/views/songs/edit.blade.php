@@ -4,7 +4,7 @@
     </x-slot:title>
 
     <div class="flex justify-between max-w-md mx-auto">
-    <form method="POST" action="{{ route('songs.update', ['index' => $song->id]) }}" class="mr-2">
+    <form method="POST" action="{{ route('songs.update', ['song' => $song->id]) }}">
         @csrf 
         @method('PUT')
 
@@ -20,7 +20,7 @@
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Save</button>
     </form>
 
-    <form method="POST" action="{{ route('destroy', $id) }}">
+    <form method="POST" action="{{ route('songs.destroy', $id) }}">
         @csrf
         @method('DELETE')
         <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</button>
