@@ -5,6 +5,7 @@ use App\Http\Controllers\SongController;
 
 Route::resource('songs', SongController::class);
 
+// Route::get("/", [SongController::class, 'index'])->name('songs');
 // Route::get('create', [SongController::class, 'create']);
 // Route::get('songs/{index}', [SongController::class, 'show'])->name('show');
 // Route::post('songs/', [SongController::class, 'store'])->name('store');
