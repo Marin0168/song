@@ -6,9 +6,15 @@
     <title>{{$title}}</title>
     <!-- <script src="https://cdn.tailwindcss.com" ></script> -->
     @vite('resources/css/app.css') 
+<<<<<<< HEAD:resources/views/components/songs-layouts.blade.php
 
 </head>
 <body>
+=======
+</head>
+<body>
+
+>>>>>>> main:resources/views/components/layouts.blade.php
 <div class="min-h-full">
   <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
