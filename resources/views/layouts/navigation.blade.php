@@ -12,9 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    @auth
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @endauth
                     <x-nav-link :href="route('albums.index')" :active="request()->routeIs('albums')">
                         {{ __('Albums') }}
                     </x-nav-link>
@@ -29,6 +31,21 @@
                     </x-nav-link>
                 </div>
             </div>
+
+            @guest
+            <!-- Authentication Links -->
+            <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
+                <x-nav-link :href="route('login')">
+                    {{ __('Log in') }}
+                </x-nav-link>
+                @if (Route::has('register'))
+                <x-nav-link :href="route('register')">
+                    {{ __('Register') }}
+                </x-nav-link>
+                @endif
+            </div>
+@endguest
+
             @auth
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
