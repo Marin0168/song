@@ -15,9 +15,21 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('albums.index')" :active="request()->routeIs('albums')">
+                        {{ __('Albums') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('bands.index')" :active="request()->routeIs('bands')">
+                        {{ __('Bands') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('songs.index')" :active="request()->routeIs('songs')">
+                        {{ __('Songs') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
+                        {{ __('Create') }}
+                    </x-nav-link>
                 </div>
             </div>
-
+            @auth
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
@@ -97,4 +109,5 @@
             </div>
         </div>
     </div>
+    @endauth
 </nav>

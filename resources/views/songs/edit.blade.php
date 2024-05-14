@@ -1,8 +1,5 @@
-<x-songs-layouts>
-    <x-slot:title>
-        EditPage
-    </x-slot:title>
-
+@auth
+<x-app-layout>
     <div class="flex justify-between max-w-md mx-auto">
     <form method="POST" action="{{ route('songs.update', ['song' => $song->id]) }}">
         @csrf 
@@ -29,5 +26,8 @@
 
 
 
-</x-songs-layouts>
+</x-app-layout>
 
+@else
+    <script>window.location = "{{ route('songs.show', $band->id) }}";</script>
+@endauth
